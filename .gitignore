@@ -1,0 +1,37 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDEs and editors
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+*.sln
+*.pyproj.user
+*.bak
+*.backup
+*.swp
+*.dmp
+*.pyc
+
+# Project Files
+/output/gpt_articles/*
+/output/scraped_articles/*
+/config.yml
+/logs/*

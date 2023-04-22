@@ -1,0 +1,24 @@
+scraping_options:
+  # the base URL where the paginated blog is located
+  blog_url: "https://website.com/blog"
+  # the number of pages the blog has. Look towards the bottom of the page for 1 2 3 .... 30
+  num_pages: 5
+  # the pagination parameter of the blog
+  page_param: "?page="
+  # you will be searching for URLs containing this relative path. Usually the relative path to the blog
+  path_to_search_for: "/blog"
+  # The root url of the website if the blog is located in a subdirectory. Will not work if blog is on a subdomain
+  root_url: "https://website.com"
+  # Blogs might contain urls like https://website.com/blog/terms-of-service. This ensures we exclude those
+  paths_to_exclude:
+    - "?page="
+    - "/disclaimer"
+    - "guidelines"
+    - "glossary"
+article_options:
+  # The main tag that wraps the article body. Inspect the article to find out. Usually <article> Bla bla bla </article>
+  article_tag: article
+  # The main tag tha wraps the article title. Usually h1
+  title_tag: h1
+  # Your ChatGPT prompt
+  gpt_prompt: Re-write the following article by emphasising on singularity and AI. Add headings where relevant. Re-write the entire article in an original way, do not skip any paragraphs.
