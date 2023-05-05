@@ -43,7 +43,11 @@ class ContentScraper:
         try:
             response = requests.get(url)
             soup = BeautifulSoup(response.content, "html.parser")
-            body = soup.find_all(article_tag)[0].text
+            body = ''
+            for tag in soup.find_all(article_tag):
+                if tag.text is not None:
+                    body += tag.text
+
             title = re.sub(r"[^a-zA-Z0-9\s]", "", soup.find_all(title_tag)[0].text)
 
             return {"body": body, "title": title}
