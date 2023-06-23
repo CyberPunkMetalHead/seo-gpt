@@ -7,8 +7,12 @@ class Utils:
         pass
 
     def save_file(self, filename: str, data, path="output/scraped_articles"):
-        with open(f"{path}/{filename}", "w", encoding="utf-8") as file:
-            file.write(str(data))
+        try:
+            with open(f"{path}/{filename}", "w", encoding="utf-8") as file:
+                file.write(str(data))
+
+        except Exception as e:
+            print(e)
 
     def load_file(self, filename: str, path="output/scraped_articles"):
         with open(f"{path}/{filename}", "r", encoding="utf-8") as file:

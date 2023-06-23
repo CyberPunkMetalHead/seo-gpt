@@ -17,7 +17,7 @@ def main():
     if len(saved_articles) == 0:
         # Generates a list of all the pages that contain articles
         logging.info(f"Scraping {blog_url} ")
-        pages = scraper.generate_list_of_pages(blog_url, 5, page_param="?page=")
+        pages = scraper.generate_list_of_pages(blog_url, num_pages, page_param)
 
         # Generates a list of article URLS and flattens the array
         article_urls = np.hstack(
@@ -57,7 +57,7 @@ def main():
             response = chatgpt.generate_single_input_text(
                 f"{gpt_prompt}: {article_body}"
             )
-            print(response["choices"][0]["message"]["content"])
+
             util.save_file(
                 article.replace(".txt", ".md"),
                 response["choices"][0]["message"]["content"],

@@ -11,7 +11,7 @@ class ContentScraper:
         pass
 
     def generate_list_of_pages(
-        self, base_url: str, number_of_pages: int, page_param: str = "?page="
+        self, base_url: str, number_of_pages: int, page_param: str
     ):
         return [f"{base_url}{page_param}{i}" for i in range(1, number_of_pages + 1)]
 
@@ -33,10 +33,10 @@ class ContentScraper:
 
         for link in soup.find_all("a"):
             href = link.get("href")
-            if href.startswith(path_to_search_for) and not any(
+            if path_to_search_for in href and not any(
                 item in href for item in paths_to_exclude
             ):
-                links.append(root_url + href)
+                links.append(href)
         return links
 
     def scrape_all_content_under_tag(self, url: str, article_tag: str, title_tag: str):

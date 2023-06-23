@@ -16,6 +16,10 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+node_modules
+node_modules/*
+package.json
+package-lock.json
 
 # IDEs and editors
 .idea/
