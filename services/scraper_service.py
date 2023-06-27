@@ -36,7 +36,7 @@ class ContentScraper:
             if path_to_search_for in href and not any(
                 item in href for item in paths_to_exclude
             ):
-                links.append(href)
+                links.append(href if "https" in href else root_url + href)
         return links
 
     def scrape_all_content_under_tag(self, url: str, article_tag: str, title_tag: str):
@@ -49,5 +49,5 @@ class ContentScraper:
             return {"body": body, "title": title}
 
         except Exception as e:
-            logging.warning(f"Could fetch text for title for {url}: {e}")
+            logging.warning(f"Could not fetch text for title for {url}: {e}")
             return {"body": None, "title": None}

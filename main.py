@@ -1,3 +1,4 @@
+import time
 import numpy as np
 
 from services.chat_gpt_service import ChatGpt
@@ -68,6 +69,7 @@ def main():
         except Exception as e:
             logging.error(f"ERROR encountered at {article}: {e}")
             continue
+        time.sleep(20)
 
 
 if __name__ == "__main__":
